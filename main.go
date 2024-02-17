@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"math/rand"
-	"slices"
+	//"slices"
 	"strings"
 
 	"github.com/fatih/color"
@@ -57,10 +57,10 @@ func main() {
 			for i, wordLetter := range word {
 				if inputLetter == wordLetter {
 					correctGuess = true
-					color.Green("%s was correct guess!\n", string(inputLetter))
-					if slices.Contains(blanks, string(inputLetter)) {
-						color.Yellow("%s has already been guessed!\n", string(inputLetter))
-					}
+					color.Blue("%s was correct guess!\n", string(inputLetter))
+					// if slices.Contains(blanks, string(inputLetter)) {
+					// 	color.Yellow("%s has already been guessed!\n", string(inputLetter))
+					// }
 					blanks[i] = string(inputLetter)
 				}
 			}
@@ -79,7 +79,7 @@ func main() {
 
 		// 6- if guess correct
 		if word == strings.Join(blanks, "") {
-			color.Green("❤️ %d, Word: %s - Woy won, Congarts!\n", lives, word)
+			color.Green("❤️ %d, Word: %s - You won, Congarts!\n", lives, word)
 			break
 		}
 	}
